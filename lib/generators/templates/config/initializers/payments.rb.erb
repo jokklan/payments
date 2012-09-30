@@ -1,0 +1,11 @@
+Payments.configure do |config|
+  # Configure which mode active merchant will run in (:test, or :production).
+  # config.active_merchant_mode = <%= Payments.active_merchant_mode.inspect %>
+  
+  # Set active merchant payment provider (see https://github.com/Shopify/active_merchant for a list of supported payment gateways).
+  # config.active_merchant_payment_provider = <%= Payments.active_merchant_payment_provider.inspect %>
+  
+  # Set the login information needed for the provided payment gateway, as a hash. Must include login key.
+  # config.active_merchant_login_information = <%= Payments.active_merchant_login_information.inspect %>
+  
+end

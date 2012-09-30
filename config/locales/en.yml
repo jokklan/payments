@@ -1,0 +1,36 @@
+en:
+  plugins:
+    transactions:
+      title: Transactions
+    payments:
+      title: Payments
+  payments:
+    admin:
+      transactions:
+        actions:
+          create_new: Add New Transaction
+          reorder: Reorder Transactions
+          reorder_done: Done Reordering Transactions
+        records:
+          title: Transactions
+          sorry_no_results: Sorry! There are no results found.
+          no_items_yet: There are no Transactions yet. Click "Add New Transaction"
+            to add your first transaction.
+        transaction:
+          view_live_html: View this transaction live <br/><em>(opens in a new window)</em>
+          edit: Edit this transaction
+          delete: Remove this transaction forever
+    transactions:
+      show:
+        other: Other Transactions
+activerecord:
+  attributes:
+    payments/transaction:
+      order_id: Order
+      action: Action
+      amount: Amount
+      reference: Reference
+      success: Success
+      test: Test
+      message: Message
+      params: Params

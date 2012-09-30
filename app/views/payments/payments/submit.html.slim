@@ -1,0 +1,15 @@
+= payment_service_for 1, Payments.active_merchant_login_information[:login], \
+												:amount => amount(resource.price), \
+												:currency => "DKK", \
+												:credential2 => Payments.active_merchant_login_information[:password], \
+												:service => Payments.active_merchant_payment_provider, \
+												:html => { :id => 'payment_form' }  do |service|
+	- service.notify_url callback_payments_url(resource)
+	- service.return_url return_payments_url(resource)
+	- service.cancel_return_url cancel_payments_url(resource)
+	
+	| Vent venligst, imens vi videresender dig til #{Payments.active_merchant_payment_provider.titleize} eller tryk her
+	input name="commit" type="submit" value="Fortsæt"
+	
+javascript:
+	document.getElementById("payment_form").submit()
