@@ -4,9 +4,9 @@
 												:credential2 => Payments.active_merchant_login_information[:password], \
 												:service => Payments.active_merchant_payment_provider, \
 												:html => { :id => 'payment_form' }  do |service|
-	- service.notify_url callback_payments_url(resource)
-	- service.return_url return_payments_url(resource)
-	- service.cancel_return_url cancel_payments_url(resource)
+	- service.notify_url callback_payment_url(resource)
+	- service.return_url return_payment_url(resource)
+	- service.cancel_return_url cancel_payment_url(resource)
 	
 	| Vent venligst, imens vi videresender dig til #{Payments.active_merchant_payment_provider.titleize} eller tryk her
 	input name="commit" type="submit" value="Fortsæt"
