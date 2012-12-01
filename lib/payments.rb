@@ -1,11 +1,16 @@
 autoload :PaymentsGenerator, 'generators/payments_generator'
 
-module Payments
-  require 'payments/mapping'
-  require 'payments/route'
-  require 'payments/configuration'
-  require 'payments/models'
-  require 'payments/engine'
+require 'payments/mapping'
+require 'payments/configuration'
+require 'payments/models'
+require 'payments/rails'
+
+module Payments  
+  module Controllers
+    autoload :UrlHelpers, 'payments/controllers/url_helpers'
+  end
+  
+  URL_HELPERS = ActiveSupport::OrderedHash.new
   
   # Store scopes mappings.
   mattr_reader :mappings
@@ -24,6 +29,17 @@ module Payments
       @@mappings[mapping.name] = mapping
     end
     
+    def include_helpers(scope)
+      ActiveSupport.on_load(:action_controller) do
+        include scope::Helpers if defined?(scope::Helpers)
+        include scope::UrlHelpers
+      end
+      
+      ActiveSupport.on_load(:action_view) do
+        include scope::UrlHelpers
+      end
+    end
+
   end
 end
 

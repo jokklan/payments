@@ -52,14 +52,17 @@ module ActionDispatch::Routing
     protected
     
     def payments_routes(mapping, controller) #:nodoc:
-      resources :payments, only: [], :controller => controller, :path => mapping.path, :as => mapping.as do
-        member do
-          get :submit
-          get :cancel
-          get :return
-          post :callback
+      # scope :module => "payments" do
+        resources :payments, only: [], :controller => controller, :path => mapping.path, :as => mapping.as do
+          member do
+            get :submit
+            get :cancel
+            get :return
+            post :callback
+          end
         end
-      end
+      # end
+      
     end
     
   end

@@ -75,7 +75,7 @@ module Payments
     end
   
     def unknown_action!(msg)
-      logger.debug "[Devise] #{msg}" if logger
+      logger.debug "[Payments] #{msg}" if logger
       raise AbstractController::ActionNotFound, msg
     end
   
