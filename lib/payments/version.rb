@@ -2,7 +2,7 @@ module Payments
   class Version #:nodoc:
     @major = 0
     @minor = 9
-    @tiny  = 1
+    @tiny  = 2
     @build = 'dev'
 
     class << self

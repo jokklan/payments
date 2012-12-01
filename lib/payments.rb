@@ -5,6 +5,7 @@ module Payments
   require 'payments/route'
   require 'payments/configuration'
   require 'payments/models'
+  require 'payments/engine'
   
   # Store scopes mappings.
   mattr_reader :mappings
